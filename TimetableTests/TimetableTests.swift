@@ -1,10 +1,3 @@
-//
-//  TimetableTests.swift
-//  TimetableTests
-//
-//  Created by Ben Baumeister on 30.03.24.
-//
-
 import XCTest
 @testable import Timetable
 

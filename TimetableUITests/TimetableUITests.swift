@@ -1,10 +1,3 @@
-//
-//  TimetableUITests.swift
-//  TimetableUITests
-//
-//  Created by Ben Baumeister on 30.03.24.
-//
-
 import XCTest
 
 final class TimetableUITests: XCTestCase {

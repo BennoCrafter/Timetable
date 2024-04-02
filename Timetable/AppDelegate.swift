@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Timetable
-//
-//  Created by Ben Baumeister on 30.03.24.
-//
-
 import UIKit
 
 @main

@@ -11,6 +11,7 @@
 		D3396A4C2BB88ABC0062FB12 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3396A4B2BB88ABC0062FB12 /* CardView.xib */; };
 		D3396A4E2BB88B070062FB12 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3396A4D2BB88B070062FB12 /* CardView.swift */; };
 		D3396A502BB957F80062FB12 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3396A4F2BB957F70062FB12 /* Main.swift */; };
+		D3517F172BBC9E97008B036D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517F162BBC9E97008B036D /* DataManager.swift */; };
 		D3B195CA2BB828DB0002DEBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B195C92BB828DB0002DEBC /* AppDelegate.swift */; };
 		D3B195CC2BB828DB0002DEBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B195CB2BB828DB0002DEBC /* SceneDelegate.swift */; };
 		D3B195CE2BB828DB0002DEBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B195CD2BB828DB0002DEBC /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		D3396A4B2BB88ABC0062FB12 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		D3396A4D2BB88B070062FB12 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D3396A4F2BB957F70062FB12 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		D3517F162BBC9E97008B036D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D3B195C62BB828DB0002DEBC /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B195C92BB828DB0002DEBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3B195CB2BB828DB0002DEBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = CardCreation;
 			sourceTree = "<group>";
 		};
+		D3517F152BBC9E83008B036D /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D3517F162BBC9E97008B036D /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		D3B195BD2BB828DB0002DEBC = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		D3B195C82BB828DB0002DEBC /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				D3517F152BBC9E83008B036D /* DataManager */,
 				D305C1CA2BB9AE50009F87F9 /* CardCreation */,
 				D3B196022BB8520E0002DEBC /* utils */,
 				D3B195F92BB828F10002DEBC /* CardComponent */,
@@ -304,6 +315,7 @@
 				D3B195CA2BB828DB0002DEBC /* AppDelegate.swift in Sources */,
 				D3B195CC2BB828DB0002DEBC /* SceneDelegate.swift in Sources */,
 				D3396A4E2BB88B070062FB12 /* CardView.swift in Sources */,
+				D3517F172BBC9E97008B036D /* DataManager.swift in Sources */,
 				D305C1D02BB9B54B009F87F9 /* NewCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
