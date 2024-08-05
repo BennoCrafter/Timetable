@@ -16,6 +16,7 @@
 		D3C17F642C61669E0083DF36 /* TimetableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F632C61669E0083DF36 /* TimetableTests.swift */; };
 		D3C17F6E2C61669F0083DF36 /* TimetableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F6D2C61669F0083DF36 /* TimetableUITests.swift */; };
 		D3C17F702C61669F0083DF36 /* TimetableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F6F2C61669F0083DF36 /* TimetableUITestsLaunchTests.swift */; };
+		D3C17F7D2C6169BB0083DF36 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D3C17F692C61669E0083DF36 /* TimetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimetableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C17F6D2C61669F0083DF36 /* TimetableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableUITests.swift; sourceTree = "<group>"; };
 		D3C17F6F2C61669F0083DF36 /* TimetableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		D3C17F4B2C61669A0083DF36 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */,
 				D3C17F4C2C61669A0083DF36 /* AppDelegate.swift */,
 				D3C17F4E2C61669A0083DF36 /* SceneDelegate.swift */,
 				D3C17F502C61669A0083DF36 /* ViewController.swift */,
@@ -261,6 +264,7 @@
 				D3C17F512C61669A0083DF36 /* ViewController.swift in Sources */,
 				D3C17F4D2C61669A0083DF36 /* AppDelegate.swift in Sources */,
 				D3C17F4F2C61669A0083DF36 /* SceneDelegate.swift in Sources */,
+				D3C17F7D2C6169BB0083DF36 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,11 +444,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NW34WUQP8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Timetable/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timetable;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -468,11 +475,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NW34WUQP8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Timetable/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timetable;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
