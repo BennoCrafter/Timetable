@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D317C8242C62A260000FE99F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317C8232C62A260000FE99F /* CardView.swift */; };
+		D31AF03E2C616ADE0023C0D1 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31AF03D2C616ADE0023C0D1 /* CardView.xib */; };
 		D3C17F4D2C61669A0083DF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F4C2C61669A0083DF36 /* AppDelegate.swift */; };
 		D3C17F4F2C61669A0083DF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F4E2C61669A0083DF36 /* SceneDelegate.swift */; };
 		D3C17F512C61669A0083DF36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C17F502C61669A0083DF36 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D317C8232C62A260000FE99F /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D31AF03D2C616ADE0023C0D1 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		D3C17F492C61669A0083DF36 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C17F4C2C61669A0083DF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C17F4E2C61669A0083DF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D31AF03C2C616AC50023C0D1 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				D317C8232C62A260000FE99F /* CardView.swift */,
+				D31AF03D2C616ADE0023C0D1 /* CardView.xib */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		D3C17F402C61669A0083DF36 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		D3C17F4B2C61669A0083DF36 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				D31AF03C2C616AC50023C0D1 /* components */,
 				D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */,
 				D3C17F4C2C61669A0083DF36 /* AppDelegate.swift */,
 				D3C17F4E2C61669A0083DF36 /* SceneDelegate.swift */,
@@ -237,6 +251,7 @@
 				D3C17F592C61669E0083DF36 /* LaunchScreen.storyboard in Resources */,
 				D3C17F562C61669E0083DF36 /* Assets.xcassets in Resources */,
 				D3C17F542C61669A0083DF36 /* Main.storyboard in Resources */,
+				D31AF03E2C616ADE0023C0D1 /* CardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +280,7 @@
 				D3C17F4D2C61669A0083DF36 /* AppDelegate.swift in Sources */,
 				D3C17F4F2C61669A0083DF36 /* SceneDelegate.swift in Sources */,
 				D3C17F7D2C6169BB0083DF36 /* PageViewController.swift in Sources */,
+				D317C8242C62A260000FE99F /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

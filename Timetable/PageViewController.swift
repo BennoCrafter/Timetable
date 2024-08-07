@@ -10,21 +10,19 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         // Setting the dataSource to self
         self.dataSource = self
 
-        // Loading the view controllers frµom the storyboard and adding a view to each
+        // Loading the view controllers from the storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc1 = storyboard.instantiateViewController(withIdentifier: "vc1")
         let vc2 = storyboard.instantiateViewController(withIdentifier: "vc2")
         let vc3 = storyboard.instantiateViewController(withIdentifier: "vc3")
 
-        // Adding a view to each view controller
+        // Adding content to each view controller
         addContent(to: vc1, withText: "Page 1")
         addContent(to: vc2, withText: "Page 2")
         addContent(to: vc3, withText: "Page 3")
 
         // Adding the view controllers to the pages array
-        pages.append(vc1)
-        pages.append(vc2)
-        pages.append(vc3)
+        pages = [vc1, vc2, vc3]
 
         // Setting the initial view controller to display
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
@@ -33,18 +31,15 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     // MARK: - Helper Method
 
     private func addContent(to viewController: UIViewController, withText text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
+        let cardHeight: CGFloat = 70
+        let initialY: CGFloat = 100
+        
+        let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: initialY, width: cardWidth, height: cardHeight))
+        cardView.configureText(lessonName: text, timeBegin: "Start Time", timeEnd: "End Time")
+        cardView.delegate = self // Set the delegate if needed
 
-        viewController.view.addSubview(label)
-
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor)
-        ])
+        viewController.view.addSubview(cardView)
     }
 
     // MARK: - UIPageViewControllerDataSource Methods
@@ -59,5 +54,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         let nextIndex = (currentIndex + 1) % pages.count
         return pages[nextIndex]
+    }
+}
+
+// MARK: - CardViewDelegate
+
+extension PageViewController: CardViewDelegate {
+    func cardViewDidTap(_ cardView: CardView) {
+        print("Card tapped: \(cardView)")
     }
 }
