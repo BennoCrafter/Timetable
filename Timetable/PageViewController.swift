@@ -37,6 +37,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: initialY, width: cardWidth, height: cardHeight))
         cardView.configureText(lessonName: text, timeBegin: "Start Time", timeEnd: "End Time")
+        cardView.mainView.layer.cornerRadius = 10
         cardView.delegate = self // Set the delegate if needed
 
         viewController.view.addSubview(cardView)
