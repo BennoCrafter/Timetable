@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Timetable
-//
-//  Created by Ben Baumeister on 05.08.24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

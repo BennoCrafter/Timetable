@@ -1,46 +1,78 @@
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIGestureRecognizerDelegate {
 
     var pages = [UIViewController]()
+    let dataManager = DataManager()
+    let save_example_data: Bool = true
+    var mondayLessons: [Lesson] = []
+    
+    // card settings
+    let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
+    let cardHeight: CGFloat = 70
+    let cardSpacing: CGFloat = 5
+    let startingYPosition: CGFloat = 130
+    let days: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if (save_example_data) {
+            let sampleLesson = Lesson(name: "Math", timeBegin: "07:55", timeEnd: "08:30", events: [])
+            dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson])
+            let sampleLesson2 = Lesson(name: "Science", timeBegin: "08:40", timeEnd: "09:55", events: [])
+            dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson, sampleLesson2])
+            dataManager.saveLessons(forDay: "wednesday", lessons: [sampleLesson2])
+        }
+
         // Setting the dataSource to self
         self.dataSource = self
 
-        // Loading the view controllers from the storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc1 = storyboard.instantiateViewController(withIdentifier: "vc1")
-        let vc2 = storyboard.instantiateViewController(withIdentifier: "vc2")
-        let vc3 = storyboard.instantiateViewController(withIdentifier: "vc3")
-
-        // Adding content to each view controller
-        addContent(to: vc1, withText: "Page 1")
-        addContent(to: vc2, withText: "Page 2")
-        addContent(to: vc3, withText: "Page 3")
-
-        // Adding the view controllers to the pages array
-        pages = [vc1, vc2, vc3]
-
+        // Setup the pages
+        setupPages(count: 5)
+        
         // Setting the initial view controller to display
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
+        
+        // Allowing swipe gestures across the entire screen
+        for gestureRecognizer in self.gestureRecognizers {
+            gestureRecognizer.delegate = self
+        }
     }
 
     // MARK: - Helper Method
 
-    private func addContent(to viewController: UIViewController, withText text: String) {
-        let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
-        let cardHeight: CGFloat = 70
-        let initialY: CGFloat = 100
+    private func addLessonToPage(to viewController: UIViewController, withLesson lesson: Lesson, cardCount: Int) {
+        // Calculate the y position by properly accounting for spacing and height
+        let yOffset = startingYPosition + (cardHeight + cardSpacing) * CGFloat(cardCount)
         
-        let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: initialY, width: cardWidth, height: cardHeight))
-        cardView.configureText(lessonName: text, timeBegin: "Start Time", timeEnd: "End Time")
+        // Create the card view with the correct frame
+        let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: yOffset, width: cardWidth, height: cardHeight))
+        cardView.configureText(lesson: lesson)
         cardView.mainView.layer.cornerRadius = 10
-        cardView.delegate = self // Set the delegate if needed
+        cardView.delegate = self
 
         viewController.view.addSubview(cardView)
+    }
+
+    
+    private func setupPages(count: Int) {
+        for i in 0..<count {
+            let pageView = PageView()
+            pages.append(pageView)
+            loadPageContent(pageViewController: pageView, day: days[i])
+        }
+    }
+    
+    private func loadPageContent(pageViewController: UIViewController, day: String) {
+        if let loadedLessons = dataManager.loadLessons(forDay: day) {
+            for (index, lesson) in loadedLessons.enumerated() {
+                addLessonToPage(to: pageViewController, withLesson: lesson, cardCount: index)
+                // You can now use `index` if needed for additional logic
+            }
+        } else {
+            print("No lessons found for \(day).")
+        }
     }
 
     // MARK: - UIPageViewControllerDataSource Methods
@@ -55,6 +87,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         let nextIndex = (currentIndex + 1) % pages.count
         return pages[nextIndex]
+    }
+    
+    // MARK: - UIGestureRecognizerDelegate
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 

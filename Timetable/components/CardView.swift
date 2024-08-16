@@ -35,10 +35,10 @@ class CardView: UIView {
         timeEndLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeEndLabel.font.pointSize, weight: .regular)
     }
 
-    func configureText(lessonName: String, timeBegin: String, timeEnd: String) {
-        lessonLabel.text = lessonName
-        timeBeginLabel.text = timeBegin
-        timeEndLabel.text = timeEnd
+    func configureText(lesson: Lesson) {
+        lessonLabel.text = lesson.name
+        timeBeginLabel.text = lesson.timeBegin
+        timeEndLabel.text = lesson.timeEnd
     }
 
     @IBAction func onCardClicked(_ sender: Any) {
