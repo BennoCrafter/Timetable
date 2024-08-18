@@ -22,6 +22,8 @@
 		D3DC9E0E2C6FB56300867DEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E0D2C6FB56300867DEB /* ViewController.swift */; };
 		D3DC9E112C72831500867DEB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E102C72831500867DEB /* Config.swift */; };
 		D3DC9E192C72844600867DEB /* HexStringToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E182C72844600867DEB /* HexStringToUIColor.swift */; };
+		D3DC9E1C2C7286CD00867DEB /* AddLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E1B2C7286CD00867DEB /* AddLessonView.swift */; };
+		D3DC9E1E2C72872000867DEB /* SubjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */; };
 		D3FF52282C6DE18F009AA084 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF52272C6DE18F009AA084 /* DataManager.swift */; };
 		D3FF52302C6E4867009AA084 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF522F2C6E4867009AA084 /* DataModels.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		D3DC9E0D2C6FB56300867DEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3DC9E102C72831500867DEB /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D3DC9E182C72844600867DEB /* HexStringToUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexStringToUIColor.swift; sourceTree = "<group>"; };
+		D3DC9E1B2C7286CD00867DEB /* AddLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonView.swift; sourceTree = "<group>"; };
+		D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelection.swift; sourceTree = "<group>"; };
 		D3FF52272C6DE18F009AA084 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D3FF522F2C6E4867009AA084 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +136,6 @@
 				D3DC9E122C72832100867DEB /* App */,
 				D31AF03C2C616AC50023C0D1 /* components */,
 				D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */,
-				D3FF52272C6DE18F009AA084 /* DataManager.swift */,
 				D3FF522F2C6E4867009AA084 /* DataModels.swift */,
 				D3DC9E0D2C6FB56300867DEB /* ViewController.swift */,
 			);
@@ -187,6 +190,7 @@
 		D3DC9E162C7283EE00867DEB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D3FF52272C6DE18F009AA084 /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -194,9 +198,19 @@
 		D3DC9E172C72841300867DEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC9E1A2C7286B700867DEB /* AddLesson */,
 				D3840E782C6E982B0041D0FE /* PageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D3DC9E1A2C7286B700867DEB /* AddLesson */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC9E1B2C7286CD00867DEB /* AddLessonView.swift */,
+				D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */,
+			);
+			path = AddLesson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,12 +349,14 @@
 				D3DC9E192C72844600867DEB /* HexStringToUIColor.swift in Sources */,
 				D3C17F4D2C61669A0083DF36 /* AppDelegate.swift in Sources */,
 				D3DC9E112C72831500867DEB /* Config.swift in Sources */,
+				D3DC9E1C2C7286CD00867DEB /* AddLessonView.swift in Sources */,
 				D3840E792C6E982B0041D0FE /* PageView.swift in Sources */,
 				D3DC9E0E2C6FB56300867DEB /* ViewController.swift in Sources */,
 				D3C17F4F2C61669A0083DF36 /* SceneDelegate.swift in Sources */,
 				D3FF52302C6E4867009AA084 /* DataModels.swift in Sources */,
 				D3C17F7D2C6169BB0083DF36 /* PageViewController.swift in Sources */,
 				D317C8242C62A260000FE99F /* CardView.swift in Sources */,
+				D3DC9E1E2C72872000867DEB /* SubjectSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@ struct Event: Codable {
 
 struct Lesson: Codable {
     let name: String
+    let color: String // hex color
     let timeBegin: String
     let timeEnd: String
     var events: [Event]?

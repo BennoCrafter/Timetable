@@ -1,8 +1,13 @@
 import Foundation
 
+
+// ["#61a8ec", "#ff6347", "#32cd32", "#ffd700"]
+
 class DataManager {
     private let timetableKey = "timetable"
+    private let colorOptionsKey = "colorOptions"
     var timetable: [String: [Lesson]] = [:]
+    var colorOptions: [String] = []
     
     init() {
         loadTimetable()
@@ -32,4 +37,14 @@ class DataManager {
             }
         }
     }
+    
+    private func loadColorOptions() {
+        if let savedColorOptions = UserDefaults.standard.data(forKey: colorOptionsKey) {
+            let decoder = JSONDecoder()
+            if let loadedColorOptions = try? decoder.decode([String].self, from: savedColorOptions) {
+                colorOptions = loadedColorOptions
+            }
+        }
+    }
+    
 }

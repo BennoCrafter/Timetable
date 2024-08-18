@@ -34,6 +34,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onAdd:" destination="DfA-7H-OTN" eventType="touchUpInside" id="JFE-Mo-aBZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xeU-ut-RCn"/>
@@ -49,6 +52,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C6S-pv-CXT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1316" y="-13"/>
+        </scene>
+        <!--AddLessonView-->
+        <scene sceneID="L7W-pf-vwh">
+            <objects>
+                <viewController storyboardIdentifier="AddLessonView" title="AddLessonView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpt-yK-VGZ" customClass="AddLessonView" customModule="Timetable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cB3-kj-H5z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BwO-kz-3XT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubV-f3-87g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1700" y="-686"/>
         </scene>
     </scenes>
     <resources>

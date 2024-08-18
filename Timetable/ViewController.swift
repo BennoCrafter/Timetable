@@ -15,4 +15,10 @@ class ViewController: UIViewController {
         // Notify the PageViewController that it has been moved to a parent
         pageViewController.didMove(toParent: self)
     }
+    
+    @IBAction func onAdd(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddLessonView") as? AddLessonView else { return }
+        present(vc, animated: true)
+    }
+    
 }

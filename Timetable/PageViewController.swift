@@ -18,9 +18,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
 
         if (save_example_data) {
-            let sampleLesson = Lesson(name: "Math", timeBegin: "07:55", timeEnd: "08:30", events: [])
+            let sampleLesson = Lesson(name: "Math", color: "", timeBegin: "07:55", timeEnd: "08:30", events: [])
             dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson])
-            let sampleLesson2 = Lesson(name: "Science", timeBegin: "08:40", timeEnd: "09:55", events: [])
+            let sampleLesson2 = Lesson(name: "Science", color: "", timeBegin: "08:40", timeEnd: "09:55", events: [])
             dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson, sampleLesson2])
             dataManager.saveLessons(forDay: "wednesday", lessons: [sampleLesson2])
         }
