@@ -15,7 +15,6 @@ class PageView: UIViewController {
     
     func setupTitleLabel() {
         // Configure the title label
-        titleLabel.text = "Day Title" // Placeholder text, can be dynamic
         titleLabel.font = UIFont.boldSystemFont(ofSize: 28)
         titleLabel.textAlignment = .center
         
@@ -26,7 +25,7 @@ class PageView: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         ])
     }
 }

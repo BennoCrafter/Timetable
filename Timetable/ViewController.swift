@@ -11,7 +11,7 @@ class ViewController: UIViewController {
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         
-        pageViewController.view.frame = view.bounds.offsetBy(dx: 0, dy: 100)
+        pageViewController.view.frame = view.bounds.offsetBy(dx: 0, dy: 110)
         // Notify the PageViewController that it has been moved to a parent
         pageViewController.didMove(toParent: self)
     }

@@ -8,10 +8,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     var mondayLessons: [Lesson] = []
     
     // card settings
-    let cardWidth: CGFloat = UIScreen.main.bounds.width - 30
-    let cardHeight: CGFloat = 70
-    let cardSpacing: CGFloat = 5
-    let startingYPosition: CGFloat = 130
+    let cardWidth: CGFloat = Config.UI.cardWidth
+    let cardHeight: CGFloat = Config.UI.cardHeight
+    let cardSpacing: CGFloat = Config.UI.cardSpacing
+    let startingYPosition: CGFloat = Config.UI.startingYPosition
     let days: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
     override func viewDidLoad() {
@@ -44,12 +44,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     private func addLessonToPage(to viewController: UIViewController, withLesson lesson: Lesson, cardCount: Int) {
         // Calculate the y position by properly accounting for spacing and height
-        let yOffset = startingYPosition + (cardHeight + cardSpacing) * CGFloat(cardCount)
+        let yOffset = startingYPosition + CGFloat(cardCount) * (cardHeight + cardSpacing)
         
         // Create the card view with the correct frame
         let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: yOffset, width: cardWidth, height: cardHeight))
+        
         cardView.configureText(lesson: lesson)
-        cardView.mainView.layer.cornerRadius = 10
+        cardView.mainView.layer.cornerRadius = Config.UI.cardCornerRadius
         cardView.delegate = self
 
         viewController.view.addSubview(cardView)
@@ -59,6 +60,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private func setupPages(count: Int) {
         for i in 0..<count {
             let pageView = PageView()
+            pageView.titleLabel.text = days[i]
             pages.append(pageView)
             loadPageContent(pageViewController: pageView, day: days[i])
         }
