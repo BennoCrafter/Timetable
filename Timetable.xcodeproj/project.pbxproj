@@ -128,6 +128,7 @@
 		D3C17F4B2C61669A0083DF36 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC9E1F2C728BBC00867DEB /* Controllers */,
 				D3C17F5A2C61669E0083DF36 /* Info.plist */,
 				D3DC9E172C72841300867DEB /* Views */,
 				D3DC9E162C7283EE00867DEB /* Managers */,
@@ -135,9 +136,7 @@
 				D3DC9E142C72838400867DEB /* Resources */,
 				D3DC9E122C72832100867DEB /* App */,
 				D31AF03C2C616AC50023C0D1 /* components */,
-				D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */,
 				D3FF522F2C6E4867009AA084 /* DataModels.swift */,
-				D3DC9E0D2C6FB56300867DEB /* ViewController.swift */,
 			);
 			path = Timetable;
 			sourceTree = "<group>";
@@ -211,6 +210,15 @@
 				D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */,
 			);
 			path = AddLesson;
+			sourceTree = "<group>";
+		};
+		D3DC9E1F2C728BBC00867DEB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC9E0D2C6FB56300867DEB /* ViewController.swift */,
+				D3C17F7C2C6169BB0083DF36 /* PageViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

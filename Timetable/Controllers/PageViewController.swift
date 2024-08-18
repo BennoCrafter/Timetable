@@ -60,7 +60,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private func setupPages(count: Int) {
         for i in 0..<count {
             let pageView = PageView()
-            pageView.titleLabel.text = days[i]
+            
+            if Config.UI.firstLetterOfTitleUpper{
+                pageView.titleLabel.text = (days[i].first?.uppercased())! + days[i].dropFirst()
+            }else{
+                pageView.titleLabel.text = days[i]
+            }
+            
+            
             pages.append(pageView)
             loadPageContent(pageViewController: pageView, day: days[i])
         }
