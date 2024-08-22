@@ -1,48 +1,45 @@
+
+import Foundation
 import UIKit
 
-protocol CardViewDelegate: AnyObject {
-    func cardViewDidTap(_ cardView: CardView)
-}
 
 class CardView: UIView {
-    static let identifier = "CardView"
-
-    weak var delegate: CardViewDelegate?
-
+    
     @IBOutlet var mainView: UIView!
-    @IBOutlet weak var lessonLabel: UILabel!
-    @IBOutlet weak var timeEndLabel: UILabel!
-    @IBOutlet weak var timeBeginLabel: UILabel!
-
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initSubviews()
+        commonInit()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initSubviews()
+        commonInit()
     }
 
-    func initSubviews() {
-        let nib = UINib(nibName: CardView.identifier, bundle: nil)
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Unable to convert nib") }
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(view)
-
-        timeBeginLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeBeginLabel.font.pointSize, weight: .regular)
-        timeEndLabel.font = UIFont.monospacedDigitSystemFont(ofSize: timeEndLabel.font.pointSize, weight: .regular)
+    private func commonInit() {
+        Bundle.main.loadNibNamed("CardView", owner: self, options: nil)
+        addSubview(mainView)
+        mainView.frame = self.bounds
+        mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        setupView()
     }
-
-    func configureText(lesson: Lesson) {
-        lessonLabel.text = lesson.name
-        timeBeginLabel.text = lesson.timeBegin
-        timeEndLabel.text = lesson.timeEnd
+    
+    private func setupView(){
+        startTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: startTimeLabel.font.pointSize, weight: .regular)
+        endTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: endTimeLabel.font.pointSize, weight: .regular)
     }
-
-    @IBAction func onCardClicked(_ sender: Any) {
-        print("card clicked")
-        delegate?.cardViewDidTap(self)
+    
+    public func configure(entry: Entry){
+        startTimeLabel.text = entry.startTime
+        endTimeLabel.text = entry.endTime
+        nameLabel.text = entry.subject.name
+        
+        mainView.backgroundColor = hexStringToUIColor(hex: entry.subject.color)
     }
+    
 }

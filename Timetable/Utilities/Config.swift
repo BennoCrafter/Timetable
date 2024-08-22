@@ -19,7 +19,7 @@ struct Config {
         static let cardHeight: CGFloat = 70
         static let cardSpacing: CGFloat = 5
         static let cardCornerRadius: CGFloat = 10
-        static let startingYPosition: CGFloat = 120
+        static let startingYPosition: CGFloat = 90
         
         // Title UI Configurations
         static let firstLetterOfTitleUpper: Bool = true

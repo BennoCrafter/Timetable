@@ -3,34 +3,38 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIGestureRecognizerDelegate {
 
     var pages = [UIViewController]()
-    let dataManager = DataManager()
-    let save_example_data: Bool = true
-    var mondayLessons: [Lesson] = []
-    
     // card settings
     let cardWidth: CGFloat = Config.UI.cardWidth
     let cardHeight: CGFloat = Config.UI.cardHeight
     let cardSpacing: CGFloat = Config.UI.cardSpacing
     let startingYPosition: CGFloat = Config.UI.startingYPosition
-    let days: [String] = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+    var timetableManager: TimetableManager
+    
+    // todo make better
+    let days = Day.allCases
+    
+    init(timetableManager: TimetableManager) {
+        self.timetableManager = timetableManager
+        
+        // Call the superclass initializer
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+         
+    }
 
+    // Required initializer (for using with storyboards, but needed here as well)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if (save_example_data) {
-            let sampleLesson = Lesson(name: "Math", color: "", timeBegin: "07:55", timeEnd: "08:30", events: [])
-            dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson])
-            let sampleLesson2 = Lesson(name: "Science", color: "", timeBegin: "08:40", timeEnd: "09:55", events: [])
-            dataManager.saveLessons(forDay: "monday", lessons: [sampleLesson, sampleLesson2])
-            dataManager.saveLessons(forDay: "wednesday", lessons: [sampleLesson2])
-        }
-
+        print("hm", days)
         // Setting the dataSource to self
         self.dataSource = self
 
         // Setup the pages
         setupPages(count: 5)
-        
         // Setting the initial view controller to display
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
         
@@ -42,16 +46,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     // MARK: - Helper Method
 
-    private func addLessonToPage(to viewController: UIViewController, withLesson lesson: Lesson, cardCount: Int) {
+    private func addEntryToPage(to viewController: UIViewController, withEntry entry: Entry, cardCount: Int) {
         // Calculate the y position by properly accounting for spacing and height
         let yOffset = startingYPosition + CGFloat(cardCount) * (cardHeight + cardSpacing)
         
         // Create the card view with the correct frame
         let cardView = CardView(frame: CGRect(x: (view.frame.width - cardWidth) / 2, y: yOffset, width: cardWidth, height: cardHeight))
         
-        cardView.configureText(lesson: lesson)
+        cardView.configure(entry: entry)
         cardView.mainView.layer.cornerRadius = Config.UI.cardCornerRadius
-        cardView.delegate = self
+        //cardView.delegate = self
 
         viewController.view.addSubview(cardView)
     }
@@ -60,27 +64,25 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private func setupPages(count: Int) {
         for i in 0..<count {
             let pageView = PageView()
-            
+            let dayName = days[i].rawValue
             if Config.UI.firstLetterOfTitleUpper{
-                pageView.titleLabel.text = (days[i].first?.uppercased())! + days[i].dropFirst()
+                pageView.titleLabel.text = dayName.prefix(1).uppercased() + dayName.dropFirst()
             }else{
-                pageView.titleLabel.text = days[i]
+                pageView.titleLabel.text = dayName
+
             }
-            
-            
+    
+                
             pages.append(pageView)
             loadPageContent(pageViewController: pageView, day: days[i])
         }
     }
     
-    private func loadPageContent(pageViewController: UIViewController, day: String) {
-        if let loadedLessons = dataManager.loadLessons(forDay: day) {
-            for (index, lesson) in loadedLessons.enumerated() {
-                addLessonToPage(to: pageViewController, withLesson: lesson, cardCount: index)
-                // You can now use `index` if needed for additional logic
-            }
-        } else {
-            print("No lessons found for \(day).")
+    private func loadPageContent(pageViewController: UIViewController, day: Day) {
+        let loadedEntries = timetableManager.getEntries(forDay: day)
+        print(loadedEntries)
+        for (index, entry) in loadedEntries.enumerated() {
+            addEntryToPage(to: pageViewController, withEntry: entry, cardCount: index)
         }
     }
 
@@ -107,8 +109,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
 // MARK: - CardViewDelegate
 
-extension PageViewController: CardViewDelegate {
-    func cardViewDidTap(_ cardView: CardView) {
-        print("Card tapped: \(cardView)")
-    }
-}
+//extension PageViewController: CardViewDelegate {
+    //func cardViewDidTap(_ cardView: CardView) {
+    //    print("Card tapped: \(cardView)")
+    //}
+//}
