@@ -10,71 +10,34 @@ class UserDefaultsIO {
         self.userDefaults = userDefaults
     }
     
-    private func convertEntryDTOToEntry(entryDTO: EntryDTO, subjects: [Subject]) -> Entry{
-        let neededSubject = subjects.first { $0.id == entryDTO.subjectId }!
-        return Entry(id: entryDTO.id, day: entryDTO.day, startTime: entryDTO.startTime, endTime: entryDTO.endTime, subject: neededSubject)
-        
-    }
-    
-    private func convertEntryToEntryDTO(entry: Entry) -> EntryDTO{
-        let entryDTO = EntryDTO(id: entry.id, day: entry.day, startTime: entry.startTime, endTime: entry.endTime, subjectId: entry.subject.id)
-        return entryDTO
-    }
-    
-    
-    public func storeEntries(entries: [Entry]) -> Void{
-        var entriesDTO: [EntryDTO] = []
-        for entry in entries{
-            entriesDTO.append(convertEntryToEntryDTO(entry: entry))
-        }
+    public func saveEvents(events: [Event]) {
         do{
-            let entriesData = try JSONEncoder().encode(entriesDTO)
-            userDefaults.set(entriesData, forKey: "timetableEntries")
+            let eventsData = try JSONEncoder().encode(events)
+            userDefaults.set(eventsData, forKey: "eventsData")
         }catch {
-            print("Failed to store entries in UserDefaults: \(error)")
+            print("Failed to store eventTemplatesData in UserDefaults: \(error)")
         }
     }
     
-    public func loadEntries() -> [Entry] {
-        guard let data = userDefaults.data(forKey: "timetableEntries") else {
+    public func storeEventTemplates(eventTemplates: [EventTemplate]) {
+        do{
+            let eventTemplatesData = try JSONEncoder().encode(eventTemplates)
+            userDefaults.set(eventTemplatesData, forKey: "eventTemplates")
+        }catch {
+            print("Failed to store eventTemplatesData in UserDefaults: \(error)")
+        }
+    }
+
+    public func loadEvents() -> [Event] {
+        guard let data = userDefaults.data(forKey: "eventsData") else {
             return []
         }
 
         do {
-            let entriesDTO = try JSONDecoder().decode([EntryDTO].self, from: data)
-            var entries: [Entry] = [] // Initialize the array here
-
-            for entryDTO in entriesDTO {
-                let entry = convertEntryDTOToEntry(entryDTO: entryDTO, subjects: loadSubjects())
-                entries.append(entry) // Append the converted entry to the array
-            }
-
-            return entries
+            let events = try JSONDecoder().decode([Event].self, from: data)
+            return events
         } catch {
-            print("Failed to decode entries object: \(error)")
-            return []
-        }
-    }
-    
-    public func storeSubjects(subjects: [Subject]) {
-        do{
-            let subjectsData = try JSONEncoder().encode(subjects)
-            userDefaults.set(subjectsData, forKey: "timetableSubjects")
-        }catch {
-            print("Failed to store subjects in UserDefaults: \(error)")
-        }
-    }
-
-    private func loadSubjects() -> [Subject] {
-        guard let data = userDefaults.data(forKey: "timetableSubjects") else {
-            return []
-        }
-
-        do {
-            let subjects = try JSONDecoder().decode([Subject].self, from: data)
-            return subjects
-        } catch {
-            print("Failed to decode subjects object: \(error)") // Updated error message
+            print("Failed to decode events object: \(error)") // Updated error message
             return []
         }
     }

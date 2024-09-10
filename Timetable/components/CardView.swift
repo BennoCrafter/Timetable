@@ -2,13 +2,18 @@
 import Foundation
 import UIKit
 
-
 class CardView: UIView {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,8 +30,8 @@ class CardView: UIView {
         addSubview(mainView)
         mainView.frame = self.bounds
         mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         setupView()
+        
     }
     
     private func setupView(){
@@ -34,12 +39,12 @@ class CardView: UIView {
         endTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: endTimeLabel.font.pointSize, weight: .regular)
     }
     
-    public func configure(entry: Entry){
-        startTimeLabel.text = entry.startTime
-        endTimeLabel.text = entry.endTime
-        nameLabel.text = entry.subject.name
+    public func configure(event: Event){
+        startTimeLabel.text = self.dateFormatter.string(from: event.startDate)
+        endTimeLabel.text = self.dateFormatter.string(from: event.endDate)
+        nameLabel.text = event.name
         
-        mainView.backgroundColor = hexStringToUIColor(hex: entry.subject.color)
+        mainView.backgroundColor = hexStringToUIColor(hex: event.color)
     }
     
 }

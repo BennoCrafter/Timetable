@@ -1,36 +1,59 @@
 import Foundation
 import SwiftUI
 
-// Timetable Entry Model
-struct Entry: Identifiable {
-    let id: UUID
-    let day: Day
-    let startTime: String
-    let endTime: String
-    let subject: Subject
-}
-
-struct EntryDTO: Codable, Identifiable{
-    let id: UUID
-    let day: Day
-    let startTime: String
-    let endTime: String
-    let subjectId: UUID
-}
-
-// Subject Model
-struct Subject: Codable, Identifiable {
-    let id: UUID
+// Event Template
+struct EventTemplate: Codable {
     let name: String
-    let color: String // Store as hex string
+    let color: String // hex code
+    let occurrences: [Occurrence]
 }
 
+struct Occurrence: Codable {
+    let interval: Interval
+    let id: UUID
+    let startTime: Time
+    let endTime: Time
+    let day: Day
+}
+
+struct Event: Codable {
+    let name: String
+    let color: String // hex code
+    let eventId: UUID
+    let occurrenceId: UUID
+    let startDate: Date
+    let endDate: Date
+}
+
+
+struct Time: Codable {
+    var hours: Int
+    var minutes: Int
+}
 // Day Model
 enum Day: String, Codable, CaseIterable, Identifiable {
     var id: String { self.rawValue }
+    
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+    
+    var calendarWeekday: Int {
+        switch self {
+        case .monday: return 2
+        case .tuesday: return 3
+        case .wednesday: return 4
+        case .thursday: return 5
+        case .friday: return 6
+        case .saturday: return 7
+        case .sunday: return 1
+        }
+    }
 }
 
+enum Interval: String, Codable, CaseIterable, Identifiable {
+ 
+    var id: String {self.rawValue }
+    case daily, weekly, monthly
+}
 // Color Palette Model
 struct ColorPalette: Codable {
     let name: String

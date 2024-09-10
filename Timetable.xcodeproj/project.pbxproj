@@ -22,6 +22,8 @@
 		D3DC9E192C72844600867DEB /* HexStringToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E182C72844600867DEB /* HexStringToUIColor.swift */; };
 		D3DC9E1C2C7286CD00867DEB /* AddLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E1B2C7286CD00867DEB /* AddLessonView.swift */; };
 		D3DC9E1E2C72872000867DEB /* SubjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */; };
+		D3DFA2732C8ED4D7006394C1 /* GenerateDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA2722C8ED4D7006394C1 /* GenerateDays.swift */; };
+		D3DFA2752C90AFEC006394C1 /* YamlIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFA2742C90AFEC006394C1 /* YamlIO.swift */; };
 		D3E3F3842C7718AE0021D9CF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3F3832C7718AE0021D9CF /* CardView.swift */; };
 		D3E3F3882C771C5D0021D9CF /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E3F3872C771C5D0021D9CF /* CardView.xib */; };
 		D3E3F38A2C777D550021D9CF /* JsonIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3F3892C777D550021D9CF /* JsonIO.swift */; };
@@ -67,6 +69,8 @@
 		D3DC9E182C72844600867DEB /* HexStringToUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexStringToUIColor.swift; sourceTree = "<group>"; };
 		D3DC9E1B2C7286CD00867DEB /* AddLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonView.swift; sourceTree = "<group>"; };
 		D3DC9E1D2C72872000867DEB /* SubjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelection.swift; sourceTree = "<group>"; };
+		D3DFA2722C8ED4D7006394C1 /* GenerateDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateDays.swift; sourceTree = "<group>"; };
+		D3DFA2742C90AFEC006394C1 /* YamlIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlIO.swift; sourceTree = "<group>"; };
 		D3E3F3832C7718AE0021D9CF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D3E3F3872C771C5D0021D9CF /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		D3E3F3892C777D550021D9CF /* JsonIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonIO.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			children = (
 				D3DC9E182C72844600867DEB /* HexStringToUIColor.swift */,
 				D3DC9E102C72831500867DEB /* Config.swift */,
+				D3DFA2722C8ED4D7006394C1 /* GenerateDays.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				D3F6FA622C764A0800F0066A /* UserDefaultsIO.swift */,
 				D3E3F3892C777D550021D9CF /* JsonIO.swift */,
+				D3DFA2742C90AFEC006394C1 /* YamlIO.swift */,
 			);
 			path = io;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			files = (
 				D3E3F3842C7718AE0021D9CF /* CardView.swift in Sources */,
 				D3DC9E192C72844600867DEB /* HexStringToUIColor.swift in Sources */,
+				D3DFA2752C90AFEC006394C1 /* YamlIO.swift in Sources */,
 				D3C17F4D2C61669A0083DF36 /* AppDelegate.swift in Sources */,
 				D3E3F38A2C777D550021D9CF /* JsonIO.swift in Sources */,
 				D3DC9E112C72831500867DEB /* Config.swift in Sources */,
@@ -379,6 +386,7 @@
 				D3C17F4F2C61669A0083DF36 /* SceneDelegate.swift in Sources */,
 				D3F6FA5E2C76492200F0066A /* TimetableManager.swift in Sources */,
 				D3FF52302C6E4867009AA084 /* DataModels.swift in Sources */,
+				D3DFA2732C8ED4D7006394C1 /* GenerateDays.swift in Sources */,
 				D3C17F7D2C6169BB0083DF36 /* PageViewController.swift in Sources */,
 				D3DC9E1E2C72872000867DEB /* SubjectSelection.swift in Sources */,
 			);

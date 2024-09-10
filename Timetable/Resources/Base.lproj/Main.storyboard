@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DfA-7H-OTN">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -68,13 +68,45 @@
                     <view key="view" contentMode="scaleToFill" id="cB3-kj-H5z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-bl-4zO">
+                                <rect key="frame" x="87" y="48" width="240" height="733"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KI-9p-W73" userLabel="daySelection">
+                                        <rect key="frame" x="-5" y="33" width="250" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="yHi-ch-r20"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Day Name">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4KI-9p-W73" firstAttribute="top" secondItem="x1F-bl-4zO" secondAttribute="top" constant="33" id="Mwa-uP-1z2"/>
+                                    <constraint firstItem="4KI-9p-W73" firstAttribute="leading" secondItem="x1F-bl-4zO" secondAttribute="leading" constant="-5" id="U0L-Uu-uaV"/>
+                                    <constraint firstItem="4KI-9p-W73" firstAttribute="centerX" secondItem="x1F-bl-4zO" secondAttribute="centerX" id="hfQ-8k-2AF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BwO-kz-3XT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BwO-kz-3XT" firstAttribute="bottom" secondItem="x1F-bl-4zO" secondAttribute="bottom" constant="81" id="DH0-wD-IgX"/>
+                            <constraint firstItem="x1F-bl-4zO" firstAttribute="leading" secondItem="BwO-kz-3XT" secondAttribute="leading" constant="87" id="dFN-6T-G0F"/>
+                            <constraint firstItem="x1F-bl-4zO" firstAttribute="centerX" secondItem="cB3-kj-H5z" secondAttribute="centerX" id="hBB-iL-7F5"/>
+                            <constraint firstItem="x1F-bl-4zO" firstAttribute="top" secondItem="BwO-kz-3XT" secondAttribute="top" id="tkC-p8-PND"/>
+                        </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubV-f3-87g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1700" y="-686"/>
+            <point key="canvasLocation" x="-1700.0000000000002" y="-686.38392857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -83,8 +115,14 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
